@@ -94,7 +94,7 @@ function circle(x, y, r) {
 }
 
 // Inicialize o contexto de áudio e o analisador
-const audioCtx = new AudioContext();
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 const source = audioCtx.createMediaElementSource(audioElement);
 const analyser = audioCtx.createAnalyser();
 
