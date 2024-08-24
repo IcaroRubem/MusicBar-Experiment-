@@ -2,8 +2,8 @@ const canvas = select("#cnv");
 const audioElement = select("#audio");
 const canvasCtx = canvas.getContext("2d");
 const file = select("#file");
-const check = select("#check")
-const checkBG = select("#checkBG")
+const check = select("#check");
+const checkBG = select("#checkBG");
 
 const WIDTH = 300;
 const HEIGHT = 100;
