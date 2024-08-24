@@ -1,0 +1,31 @@
+body {
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.select-button {
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+  border: 3px solid #1000f5be;
+  transition: all 0.5s;
+}
+
+.select-button:active {
+  transform: scale(0.9);
+}
+
+.select-button:hover {
+  background-color: #1000f5be;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.avs {
+  color: #ffffff;
+}
