@@ -9,6 +9,25 @@ const WIDTH = 300;
 const HEIGHT = 100;
 let loop = false;
 
+/*================*/
+
+// Inicialize o contexto de áudio e o analisador
+let audioCtx
+let source
+let analyser
+let bufferLength
+let dataArray
+
+//const timeDomain = new Uint8Array(bufferLength);
+let floatTimeDomain
+
+let freqDomain
+let timeDomain
+let bins = 64
+
+let initialized = false
+/*================*/
+
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
 
@@ -93,26 +112,26 @@ function circle(x, y, r) {
   canvasCtx.fill();
 }
 
-// Inicialize o contexto de áudio e o analisador
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-const source = audioCtx.createMediaElementSource(audioElement);
-const analyser = audioCtx.createAnalyser();
-
-analyser.fftSize = 64;
-const bufferLength = analyser.frequencyBinCount;
-const dataArray = new Uint8Array(bufferLength);
-
-//const timeDomain = new Uint8Array(bufferLength);
-const floatTimeDomain = new Float32Array(bufferLength);
-
-const freqDomain = new Uint8Array(analyser.frequencyBinCount);
-const timeDomain = new Uint8Array(analyser.frequencyBinCount);
-let bins = 64
-
-source.connect(analyser);
-analyser.connect(audioCtx.destination);
-
-canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
+function initialize() {
+  // Inicialize o contexto de áudio e o analisador
+  let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let source = audioCtx.createMediaElementSource(audioElement);
+  let analyser = audioCtx.createAnalyser();
+  
+  analyser.fftSize = 64;
+  let bufferLength = analyser.frequencyBinCount;
+  let dataArray = new Uint8Array(bufferLength);
+  
+  //const timeDomain = new Uint8Array(bufferLength);
+  let floatTimeDomain = new Float32Array(bufferLength);
+  
+  let freqDomain = new Uint8Array(analyser.frequencyBinCount);
+  let timeDomain = new Uint8Array(analyser.frequencyBinCount);
+  let bins = 64
+  
+  source.connect(analyser);
+  analyser.connect(audioCtx.destination);
+}
 
 // Função de desenho adaptada
 function draw() {
@@ -149,6 +168,10 @@ function draw() {
 
 // Adicione um ouvinte de evento para carregar o arquivo de áudio
 file.addEventListener("change", (event) => {
+  if (!initialized) { 
+    initialize()
+    initialized = true
+  }
   const fileObj = event.target.files[0];
   audioElement.src = URL.createObjectURL(fileObj);
   if (!loop) {
