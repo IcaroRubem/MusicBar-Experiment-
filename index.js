@@ -114,20 +114,20 @@ function circle(x, y, r) {
 
 function initialize() {
   // Inicialize o contexto de áudio e o analisador
-  let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  let source = audioCtx.createMediaElementSource(audioElement);
-  let analyser = audioCtx.createAnalyser();
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  source = audioCtx.createMediaElementSource(audioElement);
+  analyser = audioCtx.createAnalyser();
   
   analyser.fftSize = 64;
-  let bufferLength = analyser.frequencyBinCount;
-  let dataArray = new Uint8Array(bufferLength);
+  bufferLength = analyser.frequencyBinCount;
+  dataArray = new Uint8Array(bufferLength);
   
   //const timeDomain = new Uint8Array(bufferLength);
-  let floatTimeDomain = new Float32Array(bufferLength);
+  floatTimeDomain = new Float32Array(bufferLength);
   
-  let freqDomain = new Uint8Array(analyser.frequencyBinCount);
-  let timeDomain = new Uint8Array(analyser.frequencyBinCount);
-  let bins = 64
+  freqDomain = new Uint8Array(analyser.frequencyBinCount);
+  timeDomain = new Uint8Array(analyser.frequencyBinCount);
+  bins = 64
   
   source.connect(analyser);
   analyser.connect(audioCtx.destination);
