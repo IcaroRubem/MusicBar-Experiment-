@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Equalizador</title>
+</head>
+<body>
+    
+    <main>
+        <div class="kaua">
+            <input id="file" type="file" accept="audio/*">
+            <label>FILL/RECT</label>
+            <input type="checkbox" id="fill-rect" checked>
+        </div>
+        <audio id="audio" controls></audio>
+        <canvas id="canvas"></canvas>
+        <div class="raiders"></div>
+    </main>
+
+    <script src="globals.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

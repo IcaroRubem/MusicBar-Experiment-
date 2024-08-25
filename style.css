@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100dvw;
+    min-height: 100dvh;
+}
+
+canvas {
+    margin-top: 10px;
+    border: 1px solid #ffffff;
+}
+
+input:in-range {
+    width: 78%;
+}
+
+.kaua {
+    margin-bottom: 20px;
+}
+
+#file {
+    width: 200px;
+}
+
+label {
+    color: #ffffff;
+}
+
+.raiders {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.raiderBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 8pt;
+}
