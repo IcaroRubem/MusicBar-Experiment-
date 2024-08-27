@@ -173,7 +173,7 @@ function draw() {
             // context.strokeStyle = "#ffffff"
             // context.stroke()
             context.beginPath()
-            context.arc(0, HEIGHT, 2, 0, 2 * Math.PI);
+            context.arc(widthBand/2, HEIGHT, 0, 0, 2 * Math.PI);
             context.fill()
         }
         for (let i = 0; i < equalizator._bandsLength; i++) {
@@ -183,13 +183,13 @@ function draw() {
             if (!checkType.checked) {
                 context.fillRect(i * widthBand + 1, HEIGHT - heightBand, widthBand, heightBand);
             } else {
-                context.arc(i * widthBand, HEIGHT - heightBand, 2, 0, 2 * Math.PI);
+                context.arc(i * widthBand + widthBand/2, HEIGHT - heightBand, 0, 0, 2 * Math.PI);
                 context.fill()
             }
         }
 
         if (checkType.checked) {
-            context.arc(WIDTH, HEIGHT, 2, 0, 2 * Math.PI);
+            context.arc(WIDTH - widthBand/2, HEIGHT, 0, 0, 2 * Math.PI);
             context.fill()
         }
 
@@ -199,7 +199,7 @@ function draw() {
             // context.strokeStyle = "#ffffff"
             // context.stroke()
             context2.beginPath()
-            context2.arc(0, HEIGHT, 2, 0, 2 * Math.PI);
+            context2.arc(widthBand/2, HEIGHT, 0, 0, 2 * Math.PI);
             context2.fill()
         }
         for (let i = 0; i < equalizator._bandsLength; i++) {
@@ -209,13 +209,13 @@ function draw() {
             if (!checkType.checked) {
                 context2.fillRect(i * widthBand + 1, HEIGHT - heightBand, widthBand, heightBand);
             } else {
-                context2.arc(i * widthBand, HEIGHT - heightBand, 2, 0, 2 * Math.PI);
+                context2.arc(i * widthBand + widthBand/2, HEIGHT - heightBand, 0, 0, 2 * Math.PI);
                 context2.fill()
             }
         }
 
         if (checkType.checked) {
-            context2.arc(WIDTH, HEIGHT, 2, 0, 2 * Math.PI);
+            context2.arc(WIDTH - widthBand/2, HEIGHT, 0, 0, 2 * Math.PI);
             context2.fill()
         }
     }
